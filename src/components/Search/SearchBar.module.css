@@ -1,0 +1,41 @@
+.searchBar {
+    margin-top: 60px; /* Height of NavBar + some space */
+    text-align: center;
+    padding: 20px;
+}
+
+.search_input{
+    width: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-right: 16px;
+} 
+.search_btn {
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    margin-left: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    .searchBar {
+        margin-top: 40px;
+
+    }
+    .search_input{
+        width: 100%;
+        margin-right: 0px;
+    }
+    .search_btn {
+        margin-left: 0px;
+    }
+
+
+    
+}
