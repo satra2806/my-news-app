@@ -4,7 +4,6 @@ import ArticleList from '../components/ArticleList';
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar/NavBar';
 // import styles from '../styles/Home.module.css';
-import GearButton from '@/components/GearIcon';
 export default function Home() {
   const [articles, setArticles] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +29,6 @@ export default function Home() {
 
       <div> 
         <SearchBar onSearch={fetchArticles} />
-        <GearButton onOpen={setIsOpen} />
       </div>
       <ArticleList articles={articles} />
       {/* Render articles here */}

@@ -2,17 +2,22 @@
 // import { SettingsIcon } from '@chakra-ui/icons';
 import { MdSettings } from 'react-icons/md'
 import { Icon } from '@chakra-ui/react'
+import styles from './GearButton.module.css';
 
 function GearButton({ onOpen }) {
   return (
-    <Icon
-      as={MdSettings} 
-      onClick={() => onOpen(true)}
-      aria-label='Settings'
-      colorScheme='teal' // Customizing the color scheme
-      size='lg' // Customizing the size
-      variant='outline'
-    />
+    <div className={styles.gear_icon}>
+        <Icon
+        as={MdSettings} 
+        onClick={() => onOpen(true)}
+        aria-label='Settings'
+        color={'white'}
+        // size='eg' // Customizing the size
+        w={8}
+        h={8}
+        variant='outline'
+        />
+    </div>
   );
 }
 
