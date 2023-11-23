@@ -1,37 +1,32 @@
 'use client';
 import SearchBar from '../components/Search/SearchBar';
-import ArticleList from '../components/ArticleList';
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar/NavBar';
-// import styles from '../styles/Home.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import styles from './Home.module.css';
+import NewsCard from '@/components/newsCard';
+import { NewsApi } from './api/api';
+
+ 
 export default function Home() {
   const [articles, setArticles] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
+  const {news, categories , authors , preferredSource} = useSelector((state) => state.news);
+  const dispatch = useDispatch();
   const fetchArticles = async (keyword) => {
-    // const response = await fetch(`/api/articles?keyword=${keyword}`);
-    // const { keyword, source } = req.query;
-      // const url = `https://newsapi.org/v2/everything?q=${keyword}&sources=${"source"}&apiKey=${}`;
-      const url = `https://newsapi.org/v2/everything?q=${keyword}&apiKey=22e78dedff5c477681803597fdd8b4db`;
-    
-      try {
-        const newsResponse = await fetch(url);
-        const newsData = await newsResponse.json();
-        console.log(newsData, "satra");
-        // res.status(200).json(newsData);
-      } catch (error) {
-      }
+      if (!keyword) return;
+      // https://content.guardianapis.com/search?api-key=ee130db9-969f-46e4-9082-36e417417020
+      NewsApi(authors.value , keyword  , '2022-22-10' , '2022-23-10' , dispatch);
+
   };
 
   return (
     <div>
       <NavBar />
-
       <div> 
-        <SearchBar onSearch={fetchArticles} />
+        <SearchBar onSearch={fetchArticles} className={styles.srch}/>
       </div>
-      <ArticleList articles={articles} />
-      {/* Render articles here */}
+      <NewsCard />
     </div>
   );
 }

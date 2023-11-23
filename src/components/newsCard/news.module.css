@@ -1,0 +1,22 @@
+
+
+.news_container {
+  padding-top: 170px; /* Adjust this value to match the height of your search bar plus any additional space */
+  /* ... other styles ... */
+}
+
+/* Individual news cards */
+.news_card {
+  /* Remove the padding-top if it's not needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  
+  /* ... other styles ... */
+}

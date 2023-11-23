@@ -8,13 +8,15 @@ const initialState = {
     news: [],
     status: 'idle',
     error: null,
-    preferredSource: null,
-    categories: [],
-    authors: [],
+    preferredSource: { value: 'NewsAPI', label: 'NewsAPI' },
+    categories: { value: 'business', label: 'Business' },
+    newsCategory: [{ value: 'business', label: 'Business' }, { value: 'entertainment', label: 'Entertainment' }, { value: 'general', label: 'General' }, { value: 'health', label: 'Health' }, { value: 'science', label: 'Science' }, { value: 'sports', label: 'Sports' }, { value: 'technology', label: 'Technology' }],
+    authors: { value: 'BBC News', label: 'BBC News' },  
+    authorsData: [{ value : 'Robert Brand' , label : 'Robert Brand' } , { value : 'BBC News' , label : 'BBC News' } , { value : 'BBC Sport' , label : 'BBC Sport' } , { value : 'BBC Weather' , label : 'BBC Weather' } , { value : 'BBC World Service' , label : 'BBC World Service' } , { value : 'BBC' , label : 'BBC' } , { value : 'BBC News - Home' , label : 'BBC News - Home' } , { value : 'BBC News - Technology' , label : 'BBC News - Technology' } , { value : 'BBC News - World' , label : 'BBC News - World' } , { value : 'BBC News - Business' , label : 'BBC News - Business' } , { value : 'BBC News - Entertainment & Arts' , label : 'BBC News - Entertainment & Arts' } , { value : 'BBC News - Health' , label : 'BBC News - Health' } , { value : 'BBC News - Science & Environment' , label : 'BBC News - Science & Environment' } , { value : 'BBC News - UK' , label : 'BBC News - UK' } , { value : 'BBC News - US & Canada' , label : 'BBC News - US & Canada' } , { value : 'BBC News - Wales' , label : 'BBC News - Wales' } , { value : 'BBC News - Scotland' , label : 'BBC News - Scotland' } , { value : 'BBC News - Northern Ireland' , label : 'BBC News - Northern Ireland' } , { value : 'BBC News - Technology' , label : 'BBC News - Technology' } , { value : 'BBC News - Business' , label : 'BBC News - Business' } , { value : 'BBC News - Entertainment & Arts' , label : 'BBC News - Entertainment & Arts' } , { value : 'BBC News - Health' , label : 'BBC News - Health' } , { value : 'BBC News - Science & Environment' , label : 'BBC News - Science & Environment' } , { value : 'BBC News - UK' , label : 'BBC News - UK' } , { value : 'BBC News - US & Canada' , label : 'BBC News - US & Canada' } , { value : 'BBC News - Wales' , label : 'BBC News - Wales' } , { value : 'BBC News - Scotland'}],
+    isModalOpen: false,
 };
 
 const newsSlice = createSlice({
-
     name: 'news',
     initialState,
     reducers: {
@@ -36,6 +38,15 @@ const newsSlice = createSlice({
         setError: (state, action) => {
             state.error = action.payload;
         },
+        setKeyword: (state, action) => {
+            state.keyWord = action.payload;
+        },
+        setDate: (state, action) => {
+            state.date = action.payload;
+        },
+        setIsModalOpen: (state, action) => {
+            state.isModalOpen = action.payload;
+        },
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
@@ -47,4 +58,9 @@ const newsSlice = createSlice({
     },});
 
 
-export const { setNews, setPreferredSource, setCategories, setAuthors, setStatus, setError } = newsSlice.actions;
+export const { 
+    setNews, setPreferredSource, setCategories, setAuthors, 
+    setStatus, setError, setKeyword, setDate, setIsModalOpen 
+ } = newsSlice.actions;
+
+export default newsSlice.reducer;

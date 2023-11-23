@@ -1,6 +1,6 @@
 "use client";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { news } from "./slice/newsSlice";
+import news from "./slice/newsSlice";
 
 const rootReducer = combineReducers({
   // grocery:grocery
