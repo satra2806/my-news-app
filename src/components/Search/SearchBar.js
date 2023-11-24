@@ -8,8 +8,8 @@ export default function SearchBar({ onSearch }) {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({type: 'news/SET_KEYWORD', payload: keyword});
-    onSearch(keyword);  
+    dispatch({type: 'news/setKeyword', payload: keyword});
+    onSearch(1,keyword);  
   };
 
   return (

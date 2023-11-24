@@ -12,7 +12,7 @@ function InitialFocus() {
     const finalRef = React.useRef(null)
     const preferredSourceData = [
       { value: 'NewsAPI', label: 'NewsAPI' },
-      { value: 'OpenNews', label: 'OpenNews' },
+      { value: 'Guardian', label: 'Guardian' },
       { value: 'NewsCred', label: 'NewsCred' },
     ]
 

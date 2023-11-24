@@ -3,16 +3,15 @@ import { SimpleGrid, Card, CardHeader, CardBody, CardFooter, Heading, Text, Butt
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './news.module.css';
 const NewsCard = ({ }) => {
-    const {news} = useSelector((state) => state.news);
+    const {news , preferredSource} = useSelector((state) => state.news);
     return(
         <SimpleGrid spacing={2} templateColumns='repeat(auto-fill, minmax(400px, 1fr))' className={styles.news_container}>
             {news.map((item) => (
-                console.log(item , "satra"),
-                <Card className={styles.news_card} key={item.title}>
+                <Card className={styles.news_card} key={item?.title || item?.webTitle}>
                     <CardHeader>
-                    <Heading size='md'> {item?.title}</Heading>
+                    <Heading size='md'> {preferredSource.value === 'NewsAPI' ? item?.title : item?.webTitle}</Heading>
                     <Text>{item?.author}</Text>
-                    <Text>{item?.publishedAt.split('T')[0]}</Text>
+                    <Text>{ preferredSource.value === 'NewsAPI' ? item?.publishedAt?.split('T')[0] : item?.webPublicationDate?.split('T')[0] }</Text>
                     </CardHeader>
                     <CardBody>
                     <Text>{item.description}</Text>
